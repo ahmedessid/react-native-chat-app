@@ -8,6 +8,9 @@ import SignUpScreen from './lib/screens/signUp/SignUpScreen';
 import DiscussionsScreen from './lib/screens/discussions/DiscussionsScreen';
 import ChatScreen from './lib/screens/chat/ChatScreen';
 
+import { Provider } from "react-redux";
+import { store } from "./lib/redux/store";
+
 const Stack = createNativeStackNavigator();
 
 const screenOptions = {
@@ -19,6 +22,7 @@ const screenOptions = {
 
 export default function App(){
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen
@@ -43,5 +47,6 @@ export default function App(){
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 };
